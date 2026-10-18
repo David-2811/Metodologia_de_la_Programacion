@@ -1,7 +1,7 @@
 # Manejo de los Strings en Python
 
 '''
-    Nombre: Jaime David Sanchez Hernandez
+    Nombre: Jaime David Sanchez Hernandez 
     Matricula: 2630009
     Grupo: IM - 1
 '''
