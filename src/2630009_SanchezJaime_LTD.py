@@ -462,3 +462,119 @@ else:
         print("Most common word:", most_common_word)
  
  
+ 
+"""
+Problem 6: Simple contact book (dictionary CRUD)
+ 
+Description:
+This program is a mini contact book using a dictionary
+(key: contact name, value: phone number as string). It reads an
+action ("ADD", "SEARCH" or "DELETE") and, depending on the action,
+adds or updates a contact, searches a phone or deletes a contact.
+ 
+Initial contacts (contacts):
+- "Alice": "1234567890", "Bob": "5551234567", "Carla": "5559876543"
+ 
+Inputs:
+- action_text: A string, "ADD", "SEARCH" or "DELETE".
+- name: A string with the name of the contact.
+- phone: A string with the phone (only for "ADD").
+ 
+Outputs:
+- ADD: "Contact saved: <name>, <phone>"
+- SEARCH: "Phone: <phone>" or "Error: contact not found"
+- DELETE: "Contact deleted: <name>" or "Error: contact not found"
+- "Error: invalid input" if the input is invalid.
+ 
+Validations:
+- action_text is normalized to uppercase and must be one of the
+  three valid options.
+- name must not be empty after strip() (it is converted to Title Case).
+- For "ADD", phone must not be empty after strip().
+- Use get() to search and "in" with pop() to delete.
+ 
+Test cases:
+1) Normal: action_text = "ADD", name = "diana", phone = "5550001111"
+   -> Contact saved: Diana, 5550001111
+2) Border: action_text = " search ", name = "alice"
+   (extra spaces and lowercase letters)
+   -> Phone: 1234567890
+   Border: action_text = "DELETE", name = "bob"
+   -> Contact deleted: Bob
+3) Error: action_text = "UPDATE", name = "alice"
+   -> Error: invalid input
+   Error: action_text = "SEARCH", name = "Zoe"
+   -> Error: contact not found
+"""
+ 
+print('\n---Problem 6: Simple contact book (dictionary CRUD)---')
+# Contacts
+contacts = {
+    "Alice": "1234567890",
+    "Bob": "5551234567",
+    "Carla": "5559876543"
+}
+ 
+# Input and validation of the action
+action_text = input("Enter the action (ADD, SEARCH or DELETE): ").strip().upper()
+ 
+if action_text not in ("ADD", "SEARCH", "DELETE"):
+    print("Error: invalid input")
+else:
+    name = input("Enter the contact name: ").strip().title()
+ 
+    if not name:
+        print("Error: invalid input")
+    elif action_text == "ADD":
+        phone = input("Enter the phone: ").strip()
+ 
+        if not phone:
+            print("Error: invalid input")
+        else:
+            contacts[name] = phone
+            print(f"Contact saved: {name}, {phone}")
+    elif action_text == "SEARCH":
+        phone = contacts.get(name)
+ 
+        if phone is None:
+            print("Error: contact not found")
+        else:
+            print(f"Phone: {phone}")
+    else:
+        if name in contacts:
+            contacts.pop(name)
+            print(f"Contact deleted: {name}")
+        else:
+            print("Error: contact not found")
+ 
+
+
+
+'''
+    CONCLUSIONES:
+Las listas conviene usarlas cuando los datos cambian: con append(), pop()
+e insert() se agregan o eliminan elementos de forma flexible. Las tuplas
+sirven para datos que no deben cambiar, como las coordenadas de un punto,
+porque son inmutables. Los diccionarios permiten buscar rápido por clave
+(producto, estudiante o contacto) con in, get() y pop(), sin recorrer toda
+la colección. Un patrón común fue combinarlas: un diccionario de listas
+(estudiantes con sus calificaciones) o una lista de palabras para construir
+un diccionario de frecuencias. Elegir bien la estructura hace el código claro.
+ 
+    REFERENCIAS:
+1)Python Software Foundation. Python Documentation - Built-in Types:
+list, tuple y dict (sequence types y mapping types).
+https://docs.python.org/3/library/stdtypes.html
+2)Python Software Foundation. Python Tutorial - Data Structures:
+listas, tuplas y diccionarios.
+https://docs.python.org/3/tutorial/datastructures.html
+3)Python Software Foundation. Python Tutorial - An Informal Introduction
+to Python: listas.
+https://docs.python.org/3/tutorial/introduction.html#lists
+4)Python Software Foundation. Python Documentation - Built-in Functions:
+len(), sum(), min(), max(), sorted() y round().
+https://docs.python.org/3/library/functions.html
+5)Python Software Foundation. Python Tutorial - Errors and Exceptions:
+uso de try y except con ValueError.
+https://docs.python.org/3/tutorial/errors.html
+"""
