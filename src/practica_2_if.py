@@ -31,6 +31,3 @@ else:
 print("Bloque if-elf-else")
 print(f"El costo del boleto es: {cost}")
 
-
-
-
