@@ -65,6 +65,7 @@ Validations:
     -> Error: enter at least two words
 '''
 
+print('---Problem 1: Full name formatter---')
 # Input
 full_name = input("Enter your full name: ").strip()
 
@@ -127,6 +128,7 @@ Test cases:
    -> Valid email: false
 """
 
+print('\n---Problem 2: Simple Email Validator---')
 # Input
 email_text = input("Enter an email address: ").strip()
 
@@ -199,6 +201,7 @@ Test cases:
    -> Error: invalid input
 """
 
+print('\n---Problem 3: Palindrome Checker---')
 # Input
 phrase = input("Enter a phrase: ").strip()
 
@@ -268,6 +271,7 @@ Test cases:
    -> Error: invalid input
 """
 
+print('\n---Problem 4: Sentence Word Stats---')
 # Input
 sentence = input("Enter a sentence: ").strip()
 
@@ -352,6 +356,7 @@ Test cases:
    -> Error: invalid input
 """
 
+print('\n---Problem 5: Password Strength Classifier---')
 # Input
 password_input = input("Enter a password: ")
 
@@ -426,6 +431,7 @@ Test cases:
    -> Error: invalid input
 """
 
+print('\n---Problem 6: Product Label Formatter---')
 # Input
 product_name = input("Enter product name: ").strip()
 price_value = input("Enter product price: ").strip()
